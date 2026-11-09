@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Search, GitCommit, BookMarked, AlertCircle, RefreshCw, Palette, Code, Copy, Check } from "lucide-react";
 import { Tooltip, ResponsiveContainer, Cell, PieChart, Pie } from "recharts";
 
@@ -226,7 +226,7 @@ export default function Dashboard() {
                                             <Pie data={repoStats} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={70} outerRadius={105} paddingAngle={5} cornerRadius={8} stroke="none">
                                                 {repoStats.map((entry, index) => (<Cell key={`cell-${index}`} fill={entry.color} />))}
                                             </Pie>
-                                            <Tooltip contentStyle={{ backgroundColor: '#1e293b', borderColor: '#334155', color: '#f8fafc', borderRadius: '8px' }} formatter={(value: number) => [`${value} Repositories`, 'Count']} />
+                                            <Tooltip contentStyle={{ backgroundColor: '#1e293b', borderColor: '#334155', color: '#f8fafc', borderRadius: '8px' }} formatter={(value: any) => [`${value} Repositories`, 'Count']} />
                                         </PieChart>
                                     </ResponsiveContainer>
                                 </div>
@@ -248,7 +248,7 @@ export default function Dashboard() {
                                             <Pie data={commitStats} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={70} outerRadius={105} paddingAngle={5} cornerRadius={8} stroke="none">
                                                 {commitStats.map((entry, index) => (<Cell key={`cell-${index}`} fill={entry.color} />))}
                                             </Pie>
-                                            <Tooltip contentStyle={{ backgroundColor: '#1e293b', borderColor: '#334155', color: '#f8fafc', borderRadius: '8px' }} formatter={(value: number) => [`${value.toLocaleString()} Commits`, 'Count']} />
+                                            <Tooltip contentStyle={{ backgroundColor: '#1e293b', borderColor: '#334155', color: '#f8fafc', borderRadius: '8px' }} formatter={(value: any) => [`${value?.toLocaleString()} Commits`, 'Count']} />
                                         </PieChart>
                                     </ResponsiveContainer>
                                 </div>
